@@ -10,6 +10,7 @@
     "build": "webpack",
     "lint": "eslint src",
     "test": "yarn lint && jest --coverage",
+    "postinstall": "mv -f node_modules/spectre.css/dist/spectre.min.css dist/assets/css/spectre.min.css && mv -f node_modules/spectre.css/dist/spectre-exp.min.css dist/assets/css/spectre-exp.min.css && mv -f node_modules/spectre.css/dist/spectre-icons.min.css dist/assets/css/spectre-icons.min.css",
     "precommit": "yarn test",
     "prepush": "yarn test"
   },
