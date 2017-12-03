@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="../node_modules/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="../node_modules/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="../node_modules/spectre.css/dist/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="assets/css/mainpage.css">
+    <title>Who Really?!</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <section class="navbar-section"></section>
+        <section class="navbar-center">
+            <img src="assets/img/who-really-logo.png" alt="who-really-logo">
+        </section>
+        <section class="navbar-section"></section>
+    </header>
+    <div id="div" class="container">
+        <div class="columns">
+            <div class="column col-6 col-mx-auto mid-part-container">
+
+                <div class="mid-part">
+
+                    <p id="p1">Who Really?! uses cutting edge image recognition algorithms to find out who you
+                        <em>really</em> are.</p>
+                    <p>Upload a portrait of yourself or a friend and learn what our A.I. thinks about it.</p>
+
+                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/file" method="post" enctype="multipart/form-data">
+                        <div class="col-3">
+                            <label class="form-label" for="fileToUpload">Portrait File:</label>
+                        </div>
+                        <div class="col-7">
+                            <input class="form-input" type="file" name="file" id="fileToUpload">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload" onclick="search()">
+                                <i class="icon icon-upload"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="divider text-center" data-content="OR"></div>
+
+                    <p>Post an URL of a portrait you want to upload here.</p>
+
+                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/url" method="post" enctype="multipart/form-data">
+                        <!-- <form class="columns col-gapless" action="https://whoreally.herokuapp.com/classification/portrait" method="post" enctype="multipart/form-data"> -->
+                        <div class="col-3">
+                            <label class="form-label" for="urlToUpload">Portrait URL:</label>
+                        </div>
+                        <div class="col-7">
+                            <input class="form-input" type="text" name="file" id="urlToUpload">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload" onclick="search()">
+                                <i class="icon icon-upload"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>

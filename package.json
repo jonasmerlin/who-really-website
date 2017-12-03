@@ -1,0 +1,38 @@
+{
+  "name": "who-really-website",
+  "version": "0.0.1",
+  "description": "The user-facing website for Who Really?!",
+  "main": "index.js",
+  "author": "Jonas Schumacher <jonas.merlin.schumacher@mailbox.org>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint src",
+    "test": "yarn lint && jest --coverage",
+    "precommit": "yarn test",
+    "prepush": "yarn test"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-compat": "^2.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "webpack": "^3.9.1"
+  },
+  "dependencies": {
+    "spectre.css": "^0.4.7"
+  }
+}
