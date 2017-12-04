@@ -27,7 +27,7 @@
                         <em>really</em> are.</p>
                     <p>Upload a portrait of yourself or a friend and learn what our A.I. thinks about it.</p>
 
-                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/file" method="post" enctype="multipart/form-data">
+                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/file" method="post" enctype="multipart/form-data">
                         <div class="col-3">
                             <label class="form-label" for="fileToUpload">Portrait File:</label>
                         </div>
@@ -45,13 +45,13 @@
 
                     <p>Post an URL of a portrait you want to upload here.</p>
 
-                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/url" method="post" enctype="multipart/form-data">
+                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/url" method="post" enctype="multipart/form-data">
                         <!-- <form class="columns col-gapless" action="https://whoreally.herokuapp.com/classification/portrait" method="post" enctype="multipart/form-data"> -->
                         <div class="col-3">
                             <label class="form-label" for="urlToUpload">Portrait URL:</label>
                         </div>
                         <div class="col-7">
-                            <input class="form-input" type="text" name="file" id="urlToUpload">
+                            <input class="form-input" type="text" name="url" id="urlToUpload">
                         </div>
                         <div class="col-2">
                             <button class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload" onclick="search()">
