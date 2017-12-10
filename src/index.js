@@ -2,54 +2,103 @@
 
 import greeter from './greeter'
 
-console.log($('#urlToUpload'));
+const midPart = $('.mid-part')
+const forms = $('.forms')
 
-console.log(greeter())
+$( '#fileForm' ).submit( function( event ) {
+    event.preventDefault();
 
-$('#urlButton').click(e => {
-  e.preventDefault()
-  // $.ajax({
-  //     type: "POST",
-  //     url: 'https://who-really.herokuapp.com/classification/portrait/url',
-  //     crossDomain:true,
-  //     success: function(data, status, xhr) {
-  //         console.log(data);;
-  //     }
-  // })
-  $.post( "https://who-really.herokuapp.com/classification/portrait/url", $( "#urlForm" ).serialize() )
-  .done(data => {
-   console.log(data);
-  })
-  replaceContent()
+    const $form = $( this )
+    const url = $form.attr( "action" )
+
+    forms.detach()
+
+    appendSpinnerTo( midPart )
+
+    // source: http://portfolio.planetjon.ca/2014/01/26/submit-file-input-via-ajax-jquery-easy-way/
+    let request = $.ajax( {
+      url: url,
+      type: 'POST',
+      data: new FormData( this ),
+      processData: false,
+      contentType: false
+    } )
+
+    request.done( data => {
+      console.log(data)
+      midPart.empty()
+      appendPortraitDescriptionTo( midPart, data )
+    })
+
+    request.fail( data => {
+      midPart.empty()
+      forms.appendTo( midPart )
+      $(input).addClass('is-error')
+      $(inputContainer + ' .form-input-hint').remove()
+      appendInputHintTo( $(inputContainer), data.responseJSON.error )
+    })
+
 })
 
-const replaceContent = function() {
+$( "#urlForm" ).submit(function( event ) {
 
+  event.preventDefault();
 
+  const $form = $( this )
+  const url = $form.attr( "action" )
 
-  let midElement = $('.mid-part').empty(newBody)
-  let newBody = $( "<div></div>" )
-  .addClass( 'loading' )
-  .on({
-    touchstart: function( event ) {
-      // Do something
-    }
+  forms.detach()
+
+  appendSpinnerTo( midPart )
+
+  let request = $.post( url, $form.serialize() );
+
+  request.done( data => {
+    console.log(data)
+    midPart.empty()
+    appendPortraitDescriptionTo( midPart, data )
   })
-  .appendTo( midElement )
 
-  setTimeout(() => {
-    midElement.empty()
-    let newBody = $( "<div></div>", {
-      text: 'Go to Google!'
-    })
-    .on({
-      touchstart: function( event ) {
-        // Do something
-      }
-    })
-    .appendTo( midElement )
-    .hide()
-    .fadeIn( "slow" )
-  }, 2000)
+  request.fail( data => {
+    midPart.empty()
+    forms.appendTo( midPart )
+    $('#urlInput').addClass('is-error')
+    $('#urlInputContainer .form-input-hint').remove()
+    appendInputHintTo( $('#urlInputContainer'), data.responseJSON.error )
+  })
 
+})
+
+let appendPortraitDescriptionTo = (element, data) => {
+  const text = `This portrait is clearly of a ${data.gender}, ${data.ethnicity} Person`
+  let description = $( "<p></p>", {
+    text: text
+  } )
+  description.appendTo( element )
+  let linkBack = $( "<a></a>", {
+    text: "I'm offended, let me try again."
+  } )
+  linkBack.click(e => {
+    restoreOriginalForm()
+  })
+  linkBack.appendTo( element )
+}
+
+let appendSpinnerTo = element => {
+  let spinner = $( "<div></div>" )
+  spinner.addClass( 'loading' )
+  spinner.appendTo( element )
+}
+
+let appendInputHintTo = (element, text) => {
+  let inputHint = $( "<p></p>", {
+    text: text
+  } )
+  inputHint.addClass('form-input-hint')
+  inputHint.appendTo( element )
+}
+
+let restoreOriginalForm = () => {
+  midPart.empty()
+  midPart.append(forms)
 }

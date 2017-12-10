@@ -23,42 +23,46 @@
 
                 <div class="mid-part">
 
-                    <p id="p1">Who Really?! uses cutting edge image recognition algorithms to find out who you
-                        <em>really</em> are.</p>
-                    <p>Upload a portrait of yourself or a friend and learn what our A.I. thinks about it.</p>
+                  <div class="forms">
 
-                    <form class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/upload" method="post" enctype="multipart/form-data">
-                        <div class="col-3">
-                            <label class="form-label" for="fileToUpload">Portrait File:</label>
-                        </div>
-                        <div class="col-7">
-                            <input class="form-input" type="file" name="file" id="fileToUpload">
-                        </div>
-                        <div class="col-2">
-                            <button id="fileButton" class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload">
-                                <i class="icon icon-upload"></i>
-                            </button>
-                        </div>
-                    </form>
+                      <p id="p1">Who Really?! uses cutting edge image recognition algorithms to find out who you
+                          <em>really</em> are.</p>
+                      <p>Upload a portrait of yourself or a friend and learn what our A.I. thinks about it.</p>
 
-                    <div class="divider text-center" data-content="OR"></div>
+                      <form id="fileForm" class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/upload" method="post" enctype="multipart/form-data">
+                          <div class="col-3">
+                              <label class="form-label" for="fileToUpload">Portrait File:</label>
+                          </div>
+                          <div id="fileInputContainer" class="col-7">
+                              <input id="fileInput" class="form-input" type="file" name="file" id="fileToUpload">
+                          </div>
+                          <div class="col-2">
+                              <button id="fileButton" class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload">
+                                  <i class="icon icon-upload"></i>
+                              </button>
+                          </div>
+                      </form>
 
-                    <p>Post an URL of a portestformtrait you want to upload here.</p>
+                      <div class="divider text-center" data-content="OR"></div>
 
-                    <form id="urlForm" class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/url" method="post" enctype="multipart/form-data">
-                        <!-- <form class="columns col-gapless" action="https://whoreally.herokuapp.com/classification/portrait" method="post" enctype="multipart/form-data"> -->
-                        <div class="col-3">
-                            <label class="form-label" for="urlToUpload">Portrait URL:</label>
-                        </div>
-                        <div class="col-7">
-                            <input class="form-input" type="text" name="url" id="urlToUpload">
-                        </div>
-                        <div class="col-2">
-                            <button id="urlButton" class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload">
-                                <i class="icon icon-upload"></i>
-                            </button>
-                        </div>
-                    </form>
+                      <p>Post an URL of a portrait you want to upload here.</p>
+
+                      <form id="urlForm" class="columns col-gapless" action="https://who-really.herokuapp.com/classification/portrait/url" method="post" enctype="multipart/form-data">
+                          <!-- <form class="columns col-gapless" action="https://whoreally.herokuapp.com/classification/portrait" method="post" enctype="multipart/form-data"> -->
+                          <div class="col-3">
+                              <label class="form-label" for="urlToUpload">Portrait URL:</label>
+                          </div>
+                          <div id="urlInputContainer" class="col-7">
+                              <input id="urlInput" class="form-input" type="text" name="url" id="urlToUpload">
+                          </div>
+                          <div class="col-2">
+                              <button id="urlButton" class="btn btn-action btn-lg tooltip tooltip-right" data-tooltip="Upload">
+                                  <i class="icon icon-upload"></i>
+                              </button>
+                          </div>
+                      </form>
+
+                  </div>
 
                 </div>
 
