@@ -76,7 +76,46 @@ var _greeter2 = _interopRequireDefault(_greeter);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log((0, _greeter2.default)()); /* eslint-disable no-console */
+console.log($('#urlToUpload')); /* eslint-disable no-console */
+
+console.log((0, _greeter2.default)());
+
+$('#urlButton').click(function (e) {
+  e.preventDefault();
+  // $.ajax({
+  //     type: "POST",
+  //     url: 'https://who-really.herokuapp.com/classification/portrait/url',
+  //     crossDomain:true,
+  //     success: function(data, status, xhr) {
+  //         console.log(data);;
+  //     }
+  // })
+  $.post("https://who-really.herokuapp.com/classification/portrait/url", $("#urlForm").serialize()).done(function (data) {
+    console.log(data);
+  });
+  replaceContent();
+});
+
+var replaceContent = function replaceContent() {
+
+  var midElement = $('.mid-part').empty(newBody);
+  var newBody = $("<div></div>").addClass('loading').on({
+    touchstart: function touchstart(event) {
+      // Do something
+    }
+  }).appendTo(midElement);
+
+  setTimeout(function () {
+    midElement.empty();
+    var newBody = $("<div></div>", {
+      text: 'Go to Google!'
+    }).on({
+      touchstart: function touchstart(event) {
+        // Do something
+      }
+    }).appendTo(midElement).hide().fadeIn("slow");
+  }, 2000);
+};
 
 /***/ }),
 /* 1 */
