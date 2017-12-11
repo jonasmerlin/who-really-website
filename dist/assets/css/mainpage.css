@@ -15,3 +15,8 @@ body {
 .mid-part {
   margin: 80;
 }
+
+#footer-content {
+  font-size: 0.75em;
+  padding: 10;
+}
