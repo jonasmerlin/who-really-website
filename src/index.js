@@ -65,7 +65,7 @@ $('#urlForm').submit(function (event) {
 })
 
 let appendPortraitDescriptionTo = (element, data) => {
-  const text = `This portrait is clearly of a ${data.gender}, ${data.ethnicity} Person`
+  const text = `This portrait is clearly of a ${data.age} year old, ${data.ethnicity} ${data.gender}`
   const description = $('<p></p>', {
     text,
   })
