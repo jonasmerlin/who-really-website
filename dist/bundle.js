@@ -70,21 +70,16 @@
 "use strict";
 
 
-var _greeter = __webpack_require__(1);
+/* eslint-disable no-console */
 
-var _greeter2 = _interopRequireDefault(_greeter);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var midPart = $('.mid-part'); /* eslint-disable no-console */
-
+var midPart = $('.mid-part');
 var forms = $('.forms');
 
 $('#fileForm').submit(function (event) {
   event.preventDefault();
 
   var $form = $(this);
-  var url = $form.attr("action");
+  var url = $form.attr('action');
 
   forms.detach();
 
@@ -114,12 +109,11 @@ $('#fileForm').submit(function (event) {
   });
 });
 
-$("#urlForm").submit(function (event) {
-
+$('#urlForm').submit(function (event) {
   event.preventDefault();
 
   var $form = $(this);
-  var url = $form.attr("action");
+  var url = $form.attr('action');
 
   forms.detach();
 
@@ -144,11 +138,11 @@ $("#urlForm").submit(function (event) {
 
 var appendPortraitDescriptionTo = function appendPortraitDescriptionTo(element, data) {
   var text = 'This portrait is clearly of a ' + data.gender + ', ' + data.ethnicity + ' Person';
-  var description = $("<p></p>", {
+  var description = $('<p></p>', {
     text: text
   });
   description.appendTo(element);
-  var linkBack = $("<a></a>", {
+  var linkBack = $('<a></a>', {
     text: "I'm offended, let me try again."
   });
   linkBack.click(function (e) {
@@ -158,13 +152,13 @@ var appendPortraitDescriptionTo = function appendPortraitDescriptionTo(element, 
 };
 
 var appendSpinnerTo = function appendSpinnerTo(element) {
-  var spinner = $("<div></div>");
+  var spinner = $('<div></div>');
   spinner.addClass('loading');
   spinner.appendTo(element);
 };
 
 var appendInputHintTo = function appendInputHintTo(element, text) {
-  var inputHint = $("<p></p>", {
+  var inputHint = $('<p></p>', {
     text: text
   });
   inputHint.addClass('form-input-hint');
@@ -175,23 +169,6 @@ var restoreOriginalForm = function restoreOriginalForm() {
   midPart.empty();
   midPart.append(forms);
 };
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var greeter = function greeter() {
-  var greeting = "I'm here, greeting.";
-  return greeting;
-};
-
-exports.default = greeter;
 
 /***/ })
 /******/ ]);
